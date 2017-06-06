@@ -1,3 +1,25 @@
+#!/usr/bin/env python
+
+"""
+get-yahoo-quotes.py:  Script to download Yahoo historical quotes using the new cookie authenticated site.
+
+ Usage: get-yahoo-quotes SYMBOL
+
+ History
+
+ 06-03-2017 : Created script
+
+"""
+
+__author__ = "Brad Luicas"
+__copyright__ = "Copyright 2017, Brad Lucas"
+__license__ = "MIT"
+__version__ = "1.0.0"
+__maintainer__ = "Brad Lucas"
+__email__ = "brad@beaconhill.com"
+__status__ = "Production"
+
+
 import re
 import sys
 import time
