@@ -17,5 +17,5 @@ $ pip install requests
 
 
 ```
-python get-yahoo-quotes-python.py SYMBOL
+python get-yahoo-quotes.py SYMBOL
 ```
