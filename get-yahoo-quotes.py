@@ -74,7 +74,7 @@ def get_data(symbol, start_date, end_date, cookie, crumb):
 
 def get_now_epoch():
     # @see https://www.linuxquestions.org/questions/programming-9/python-datetime-to-epoch-4175520007/#post5244109
-    return int(time.mktime(datetime.datetime.now().timetuple()))
+    return int(time.time())
 
 
 def download_quotes(symbol):
