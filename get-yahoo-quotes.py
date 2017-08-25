@@ -48,7 +48,10 @@ def get_page_data(symbol):
     url = "https://finance.yahoo.com/quote/%s/?p=%s" % (symbol, symbol)
     r = requests.get(url)
     cookie = get_cookie_value(r)
-    # lines = r.text.encode('utf-8').strip().replace('}', '\n')
+
+    # Code to replace possible \u002F value
+    # ,"CrumbStore":{"crumb":"FWP\u002F5EFll3U"
+    # FWP\u002F5EFll3U
     lines = r.content.decode('unicode-escape').strip(). replace('}', '\n')
     return cookie, lines.split('\n')
 
@@ -56,10 +59,6 @@ def get_page_data(symbol):
 def get_cookie_crumb(symbol):
     cookie, lines = get_page_data(symbol)
     crumb = split_crumb_store(find_crumb_store(lines))
-    # Note: possible \u002F value
-    # ,"CrumbStore":{"crumb":"FWP\u002F5EFll3U"
-    # FWP\u002F5EFll3U
-    # crumb2 = crumb.decode('unicode-escape')
     return cookie, crumb
 
 
