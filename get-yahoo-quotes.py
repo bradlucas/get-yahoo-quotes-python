@@ -88,7 +88,7 @@ def main():
     end_date = get_now_epoch()
 
     if len(sys.argv) == 1:
-        print("\nUsage: get-yahoo-quotes.py SYMBOL [optional]START_DATE [optional]END_DATE\n\n")
+        print("\nUsage: get-yahoo-quotes.py SYMBOL [optional yyyy-mm-dd]START_DATE [optional yyyy-mm-dd]END_DATE\n\n")
         return
     
     symbol = sys.argv[1]    
