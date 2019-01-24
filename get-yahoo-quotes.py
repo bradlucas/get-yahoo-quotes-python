@@ -72,24 +72,27 @@ def get_now_epoch():
     # @see https://www.linuxquestions.org/questions/programming-9/python-datetime-to-epoch-4175520007/#post5244109
     return int(time.time())
 
+	
 def get_time_epoch(iso_time):
     return calendar.timegm(time.strptime(iso_time, '%Y-%m-%d'))
 
-def download_quotes(symbol):
-    start_date = get_time_epoch('2012-01-01')
-    end_date = get_now_epoch()
+	
+def download_quotes(symbol, start_date, end_date):
     cookie, crumb = get_cookie_crumb(symbol)
     get_data(symbol, start_date, end_date, cookie, crumb)
 
 
 if __name__ == '__main__':
     # If we have at least one parameter go ahead and loop overa all the parameters assuming they are symbols
+    start_date = get_time_epoch('1970-01-01')
+    end_date = get_now_epoch()
+
     if len(sys.argv) == 1:
-        print("\nUsage: get-yahoo-quotes.py SYMBOL START_DATE END_DATE\n\n")
+        print("\nUsage: get-yahoo-quotes.py SYMBOL [optional]START_DATE [optional]END_DATE\n\n")
     else:
         for i in range(1, len(sys.argv)):
             symbol = sys.argv[i]
             print("--------------------------------------------------")
             print("Downloading %s to %s.csv" % (symbol, symbol))
-            download_quotes(symbol)
+            download_quotes(symbol, start_date, end_date)
 print("--------------------------------------------------")
