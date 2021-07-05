@@ -46,7 +46,8 @@ def get_cookie_value(r):
 
 def get_page_data(symbol):
     url = "https://finance.yahoo.com/quote/%s/?p=%s" % (symbol, symbol)
-    r = requests.get(url)
+    headers={'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10.12; rv:74.0) Gecko/20100101 Firefox/74.0'}
+    r = requests.get(url,headers=headers)
     cookie = get_cookie_value(r)
 
     # Code to replace possible \u002F value
